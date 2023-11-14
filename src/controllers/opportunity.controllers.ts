@@ -7,15 +7,23 @@ export class OpportunityControllers{
 
         const response = await opportunityServices.create(req.body);
 
-        res.status(201).json(response);
+        return res.status(201).json(response);
     }
 
     async findMany(req: Request, res: Response){
+        const opportunityServices = new OpportunityServices();
 
+        const response = await opportunityServices.findMany();
+
+        return res.status(200).json(response);
     }
 
     async findOne(req: Request, res: Response){
+        const opportunityServices = new OpportunityServices();
 
+        const response = await opportunityServices.findOne(Number(req.params.id));
+
+        return res.status(200).json(response);
     }
 
     async update(req: Request, res: Response){
