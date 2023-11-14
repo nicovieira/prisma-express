@@ -118,7 +118,7 @@ Padrão de resposta (STATUS 201)
 
 ### GET /opportunities/:id/applications
 
-Padrão de resposta (STATUS 201)
+Padrão de resposta (STATUS 200)
 
 ```json
 [
