@@ -116,6 +116,16 @@ Padrão de resposta (STATUS 201)
 }
 ```
 
+Possíveis erros
+
+404 NOT FOUND
+
+```json
+{
+   "message": "Opportunity not found"
+}
+```
+
 ### GET /opportunities/:id/applications
 
 Padrão de resposta (STATUS 200)
@@ -130,4 +140,14 @@ Padrão de resposta (STATUS 200)
       "opportunityId": 1
    }
 ]
+```
+
+Possíveis erros
+
+404 NOT FOUND
+
+```json
+{
+   "message": "Opportunity not found"
+}
 ```
