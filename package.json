@@ -4,7 +4,10 @@
   "description": "Padrão de corpo",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn src/server.ts"
+    "dev": "dotenv -e .env.develop -- tsnd --respawn src/server.ts",
+    "migrate:dev": "dotenv -e .env.develop -- npx prisma migrate dev",
+    "test": "dotenv -e .env.test -- tsnd --respawn src/server.ts",
+    "migrate:test": "dotenv -e .env.test -- npx prisma migrate dev"
   },
   "keywords": [],
   "author": "",
