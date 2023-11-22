@@ -33,7 +33,7 @@ export class UserServices {
          throw new AppError(404, "User not registered");
       }
 
-      const compare = bcrypt.compare(body.password, user.password);
+      const compare = await bcrypt.compare(body.password, user.password);
 
       if (!compare) {
          throw new AppError(403, "Email and password doesn't match");

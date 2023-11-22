@@ -2,19 +2,42 @@ import { Router } from "express";
 import { OpportunityControllers } from "../controllers/opportunity.controllers";
 import { applicationRouter } from "./application.routes";
 import { ValidateBody } from "../middlewares/validateBody.middleware";
-import { opportunityCreateSchema, opportunityUpdateSchema } from "../schemas/opportunity.schemas";
+import {
+   opportunityCreateSchema,
+   opportunityUpdateSchema,
+} from "../schemas/opportunity.schemas";
 import { IsOpportunityIdValid } from "../middlewares/isOpportunityIdValid.middleware";
+import { container } from "tsyringe";
+import { ValidateToken } from "../middlewares/validateToken.middleware";
+import { OpportunityServices } from "../services/opportunity.services";
+
+container.registerSingleton("OpportunityServices", OpportunityServices);
+const opportunityControllers = container.resolve(OpportunityControllers);
 
 export const opportunityRouter = Router();
 
-const opportunityControllers = new OpportunityControllers();
-
-opportunityRouter.post("/", ValidateBody.execute(opportunityCreateSchema) ,opportunityControllers.create);
-opportunityRouter.get("/", opportunityControllers.findMany);
+opportunityRouter.post(
+   "/",
+   ValidateToken.execute,
+   ValidateBody.execute(opportunityCreateSchema),
+   (req, res) => opportunityControllers.create(req, res)
+);
+opportunityRouter.get("/", ValidateToken.execute, (req, res) =>
+   opportunityControllers.findMany(req, res)
+);
 
 opportunityRouter.use("/:id", IsOpportunityIdValid.execute);
-opportunityRouter.get("/:id", opportunityControllers.findOne);
-opportunityRouter.patch("/:id", ValidateBody.execute(opportunityUpdateSchema), opportunityControllers.update);
-opportunityRouter.delete("/:id", opportunityControllers.delete);
+opportunityRouter.get("/:id", ValidateToken.execute, (req, res) =>
+   opportunityControllers.findOne(req, res)
+);
+opportunityRouter.patch(
+   "/:id",
+   ValidateToken.execute,
+   ValidateBody.execute(opportunityUpdateSchema),
+   (req, res) => opportunityControllers.update(req, res)
+);
+opportunityRouter.delete("/:id", ValidateToken.execute, (req, res) =>
+   opportunityControllers.delete(req, res)
+);
 
 opportunityRouter.use("/", applicationRouter);
