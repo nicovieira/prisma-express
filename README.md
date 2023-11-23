@@ -8,9 +8,9 @@ Padrão de corpo
 
 ```json
 {
-	"name": "Osvaldo",
-  "email": "osvaldo@email.com",
-  "password": "@12patinhos" 
+   "name": "Osvaldo",
+   "email": "osvaldo@email.com",
+   "password": "@12patinhos"
 }
 ```
 
@@ -18,9 +18,9 @@ Padrão de resposta (STATUS 201)
 
 ```json
 {
-	"id": 2,
-	"name": "Osvaldo",
-	"email": "osvaldo@email.com"
+   "id": 2,
+   "name": "Osvaldo",
+   "email": "osvaldo@email.com"
 }
 ```
 
@@ -30,7 +30,7 @@ Padrão de corpo
 
 ```json
 {
-	"email": "osvaldo@email.com",
+   "email": "osvaldo@email.com",
    "password": "@12patinhos"
 }
 ```
@@ -39,12 +39,12 @@ Padrão de resposta (STATUS 200)
 
 ```json
 {
-	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzAwNzQ0MTkzfQ.2cBz7ugLGJGw2HvoDxn_3u5FOBUo6tKjkwLpRG7ra-Q",
-	"user": {
-		"id": 2,
-		"name": "Osvaldo",
-		"email": "osvaldo@email.com"
-	}
+   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzAwNzQ0MTkzfQ.2cBz7ugLGJGw2HvoDxn_3u5FOBUo6tKjkwLpRG7ra-Q",
+   "user": {
+      "id": 2,
+      "name": "Osvaldo",
+      "email": "osvaldo@email.com"
+   }
 }
 ```
 
@@ -54,7 +54,7 @@ Possíveis erros
 
 ```json
 {
-	"message": "Email and password doesn't match"
+   "message": "Email and password doesn't match"
 }
 ```
 
@@ -62,7 +62,7 @@ Possíveis erros
 
 ```json
 {
-	"message": "User not registered"
+   "message": "User not registered"
 }
 ```
 
@@ -72,7 +72,7 @@ Possíveis erros
 
 ```json
 {
-	"headers": {
+   "headers": {
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzAwNzQ0NzkyfQ.pSaxG1zUp99DyI-yum_3GrpV-AJAk38B-heEE60uOMk"
    }
 }
@@ -82,13 +82,11 @@ Padrão de resposta (STATUS 200)
 
 ```json
 {
-	"id": 2,
-	"name": "Osvaldo",
-	"email": "osvaldo@email.com"
+   "id": 2,
+   "name": "Osvaldo",
+   "email": "osvaldo@email.com"
 }
 ```
-
-
 
 ### POST /opportunities (Está rota precisa de autorização)
 
@@ -107,7 +105,7 @@ Padrão de resposta (STATUS 201)
 {
    "id": 1,
    "title": "Lorem ipsum",
-   "description": "Lorem ipsum", 
+   "description": "Lorem ipsum",
    "userId": 1
 }
 ```
@@ -151,7 +149,7 @@ Padrão de resposta (STATUS 200)
    "id": 1,
    "title": "Lorem ipsum",
    "description": "Lorem ipsum",
-   "userId": 1,
+   "userId": 1
 }
 ```
 
@@ -169,7 +167,7 @@ Possíveis erros
 
 ```json
 {
-	"message": "User is not the owner of this opportunity"
+   "message": "User is not the owner of this opportunity"
 }
 ```
 
@@ -191,7 +189,7 @@ Padrão de resposta (STATUS 200)
    "id": 1,
    "title": "Lorem ipsum",
    "description": "Lorem ipsum",
-   "userId": 1,
+   "userId": 1
 }
 ```
 
@@ -213,11 +211,11 @@ Possíveis erros
 
 ```json
 {
-	"message": "User is not the owner of this opportunity"
+   "message": "User is not the owner of this opportunity"
 }
 ```
 
-### POST /opportunities/:id/applications 
+### POST /opportunities/:id/applications
 
 Padrão de corpo
 
@@ -281,6 +279,6 @@ Possíveis erros
 
 ```json
 {
-	"message": "User is not the owner of this opportunity"
+   "message": "User is not the owner of this opportunity"
 }
 ```
