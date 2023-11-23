@@ -10,7 +10,7 @@ export class HandleErrors{
         }
 
         if(error instanceof JsonWebTokenError){
-            return res.status(403).json({ message: error.message });
+            return res.status(401).json({ message: error.message });
         }
 
         if(error instanceof ZodError){

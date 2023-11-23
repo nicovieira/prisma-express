@@ -9,7 +9,7 @@ export class ValidateToken{
         const token = authorization?.replace("Bearer ", "");
 
         if(!token){
-            throw new AppError(403, "Token in required")
+            throw new AppError(401, "Token in required")
         }
 
         jwt.verify(token, process.env.JWT_SECRET as string);
