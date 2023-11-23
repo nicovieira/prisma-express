@@ -15,7 +15,7 @@ export const opportunitySchema = z.object({
     userId: z.number().positive()
 })
 
-export const opportunityCreateSchema = opportunitySchema.omit({ id: true });
+export const opportunityCreateSchema = opportunitySchema.omit({ id: true, userId: true });
 
 export const opportunityUpdateSchema = opportunityCreateSchema.partial();
 
