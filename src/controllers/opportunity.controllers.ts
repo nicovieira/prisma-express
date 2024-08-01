@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import { injectable } from "tsyringe";
+import { Request, Response } from "express";
 import { opportunity_services } from "../services/opportunity.services";
 
 const opportunityServices = new opportunity_services();
